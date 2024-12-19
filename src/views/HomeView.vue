@@ -166,10 +166,10 @@ const regenerateResponse = (msgId: string) => {
 }
 
 const generatePlaceholder = (isLoading: boolean, isRecording: boolean, error?: string) => {
-	if (error) return 'Well, well, well, looks like something has gone amiss'
-	if (isLoading) return 'The enigmatic Cheshire cat is pondering...'
-	if (isRecording) return 'The curious Cheshire cat is all ears...'
-	return 'Ask the Cheshire Cat...'
+	if (error) return 'Attenzione qualcosa è andato storto'
+	if (isLoading) return 'Sto pensando e valutando la risposta...'
+	if (isRecording) return 'Sono tutto orecchie...'
+	return 'Fammi la tua domanda...'
 }
 
 const wipeHistory = async () => {
@@ -196,9 +196,9 @@ const scrollToBottom = () => {
 		<div v-if="isOverDropZone" class="flex size-full grow flex-col items-center justify-center py-4 md:pb-0">
 			<div class="relative flex w-full grow items-center justify-center rounded-md border-2 border-dashed border-primary p-2 md:p-4">
 				<p class="text-lg md:text-xl">
-					Drop
+					Rilascia qui
 					<span class="font-medium text-primary"> files </span>
-					to send to the Cheshire Cat, meow!
+					per inviare il file!
 				</p>
 				<button class="btn btn-circle btn-error btn-sm absolute right-2 top-2" @click="isOverDropZone = false">
 					<heroicons-x-mark-20-solid class="size-6" />
@@ -223,7 +223,7 @@ const scrollToBottom = () => {
 				<span class="text-lg">😺</span>
 				<p class="flex items-center gap-2">
 					<span class="loading loading-dots loading-xs shrink-0" />
-					Cheshire Cat is thinking...
+					Sto pensando...
 				</p>
 			</div>
 		</div>
@@ -252,7 +252,7 @@ const scrollToBottom = () => {
 								<span class="rounded-lg p-1 text-primary">
 									<ph-export-bold class="size-5" />
 								</span>
-								<span class="grow">Export conversation</span>
+								<span class="grow">Esporta Conversazione</span>
 							</button>
 						</li>
 						<li>
@@ -263,7 +263,7 @@ const scrollToBottom = () => {
 								<span class="rounded-lg p-1 text-success">
 									<ph-brain-fill class="size-5" />
 								</span>
-								<span class="grow">Upload memories</span>
+								<span class="grow">Invia alla memoria</span>
 							</button>
 						</li>
 						<li>
@@ -274,7 +274,7 @@ const scrollToBottom = () => {
 								<span class="rounded-lg p-1 text-info">
 									<heroicons-globe-alt class="size-5" />
 								</span>
-								<span class="grow">Upload url</span>
+								<span class="grow">Inserisci url</span>
 							</button>
 						</li>
 						<li>
@@ -285,7 +285,7 @@ const scrollToBottom = () => {
 								<span class="rounded-lg p-1 text-warning">
 									<heroicons-document-text-solid class="size-5" />
 								</span>
-								<span class="grow">Upload file</span>
+								<span class="grow">Carica un file</span>
 							</button>
 						</li>
 						<li>
@@ -293,7 +293,7 @@ const scrollToBottom = () => {
 								<span class="rounded-lg p-1 text-error">
 									<heroicons-trash-solid class="size-5" />
 								</span>
-								<span class="grow">Clear conversation</span>
+								<span class="grow">Elimina Conversazione</span>
 							</button>
 						</li>
 					</ul>
@@ -335,10 +335,10 @@ const scrollToBottom = () => {
 		<Teleport to="#modal">
 			<ModalBox ref="boxUploadURL">
 				<div class="flex flex-col items-center justify-center gap-4 text-neutral">
-					<h3 class="text-lg font-bold">Insert URL</h3>
-					<p>Write down the URL you want the Cat to digest :</p>
-					<InputBox v-model.trim="insertedURL" placeholder="Enter url..." />
-					<button class="btn btn-primary btn-sm" @click="dispatchWebsite">Send</button>
+					<h3 class="text-lg font-bold">Inserisci URL</h3>
+					<p>Scrivi in basso l'URL che vuoi farmi digerire :</p>
+					<InputBox v-model.trim="insertedURL" placeholder="Inserisci url..." />
+					<button class="btn btn-primary btn-sm" @click="dispatchWebsite">Invia</button>
 				</div>
 			</ModalBox>
 		</Teleport>

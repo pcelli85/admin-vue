@@ -144,7 +144,7 @@ const selectBoxCollections = computed(() => {
 	const data = (memoryState.value.data ?? []).filter(v => v.name != 'procedural')
 	const totalCollections = data.map(v => v.vectors_count).reduce((p, c) => p + c, 0)
 	return [
-		{ label: `All (${totalCollections})`, value: 'all' },
+		{ label: `Tutte (${totalCollections})`, value: 'all' },
 		...data.map(v => ({ label: `${capitalize(v.name)} (${v.vectors_count ?? 0})`, value: v.name })),
 	]
 })
@@ -189,14 +189,14 @@ const wipeMemory = async () => {
 			<div class="flex gap-4">
 				<InputBox
 					v-model.trim="callText"
-					placeholder="Enter a text..."
-					label="Search similar memories"
+					placeholder="Inserisci testo..."
+					label="Ricerca memorie similari"
 					search
 					:disabled="Boolean(memoryState.error) || memoryState.loading || cannot('READ', 'MEMORY')"
 					@send="recallMemory()" />
 				<div class="form-control">
 					<label class="label px-0">
-						<span class="label-text font-semibold">K memories</span>
+						<span class="label-text font-semibold">memorie K</span>
 					</label>
 					<input
 						v-model="kMems"
@@ -215,24 +215,24 @@ const wipeMemory = async () => {
 		<Teleport to="#modal">
 			<ModalBox ref="boxWipe">
 				<div class="flex flex-col items-center justify-center gap-4 text-neutral">
-					<h3 class="text-lg font-bold text-primary">Wipe collection</h3>
+					<h3 class="text-lg font-bold text-primary">Elimina Storico</h3>
 					<p v-if="selectCollection?.selected.label.startsWith('All')">
-						Are you sure you want to wipe
+						Sei sicuro di voler eliminare tutte 
 						<span class="font-bold">
 							{{ selectCollection?.selected.label.toLowerCase() }}
 						</span>
-						the collections?
+						collezioni?
 					</p>
 					<p v-else>
-						Are you sure you want to wipe the
+						Sei sicuro di voler eliminare
 						<span class="font-bold">
 							{{ selectCollection?.selected.label.toLowerCase() }}
 						</span>
-						collection?
+						collezioni?
 					</p>
 					<div class="flex items-center justify-center gap-2">
 						<button class="btn btn-outline btn-sm" @click="boxWipe?.toggleModal()">No</button>
-						<button class="btn btn-error btn-sm" @click="wipeMemory()">Yes</button>
+						<button class="btn btn-error btn-sm" @click="wipeMemory()">Si</button>
 					</div>
 				</div>
 			</ModalBox>
@@ -241,7 +241,7 @@ const wipeMemory = async () => {
 			v-if="showSpinner || memoryState.loading || memoryState.error"
 			:load="showSpinner || memoryState.loading"
 			:error="memoryState.error"
-			:text="`Doing some magic...`" />
+			:text="`Faccio qualcosa di magico...`" />
 		<ApexChart
 			v-else-if="plotOutput && callOutput"
 			v-memo="[callOutput, plotOutput]"
@@ -266,21 +266,21 @@ const wipeMemory = async () => {
 								{
 									icon: '<button class=\'btn-primary btn btn-xs rounded whitespace-nowrap\'>Import memories</button>',
 									index: 3,
-									title: 'Import some memories',
+									title: 'Importa alcune memorie',
 									class: 'custom-icon',
 									click: () => uploadFile('memory'),
 								},
 								{
 									icon: '<button class=\'btn-primary btn btn-xs rounded whitespace-nowrap\'>Export memories</button>',
 									index: 3,
-									title: 'Export the recalled memories',
+									title: 'Esporta i richiami di memorie',
 									class: 'custom-icon',
 									click: () => downloadMemories(assign({ export_time: now() }, callOutput)),
 								},
 								{
 									icon: '<button class=\'btn-primary btn btn-xs rounded whitespace-nowrap\'>Details</button>',
 									index: 3,
-									title: 'Show the recalled memories details',
+									title: 'Visualizza i richiami di memoria nel dettaglio',
 									class: 'custom-icon',
 									click: () => memoryDetailsPanel?.togglePanel(),
 								},
@@ -409,7 +409,7 @@ const wipeMemory = async () => {
 				:disabled="cannot('DELETE', 'MEMORY')"
 				@click="deleteMemoryMarker(clickedPoint.collection, clickedPoint.id)">
 				<heroicons-trash-solid class="size-4" />
-				Delete memory point
+				Elimina punto memoria
 			</button>
 		</SidePanel>
 	</div>

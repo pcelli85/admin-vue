@@ -5,12 +5,12 @@
 		<p class="text-5xl font-bold">
 			<span class="text-error">404</span>
 			<br />
-			<span>Cat Not Found</span>
+			<span>AI non trovato</span>
 			<br />
 			<span class="text-2xl text-error">You’ve stumbled down the wrong rabbit hole!</span>
 		</p>
 		<button class="btn btn-error">
-			<RouterLink to="/"> Go back to Home! </RouterLink>
+			<RouterLink to="/"> Torna indietro alla HOME! </RouterLink>
 		</button>
 	</div>
 </template>

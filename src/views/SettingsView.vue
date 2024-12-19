@@ -7,7 +7,7 @@ import SidePanel from '@components/SidePanel.vue'
 import type { Status, UserCreate, UserResponse, UserUpdate } from 'ccat-api'
 
 const getStatus = async () => {
-	const result = await tryRequest(apiClient?.api?.status.home(), 'Getting Cheshire Cat status', 'Unable to fetch Cheshire Cat status')
+	const result = await tryRequest(apiClient?.api?.status.home(), 'Getting X status', 'Unable to fetch X status')
 	return result.data
 }
 
@@ -62,7 +62,7 @@ const createOrUpdateUser = () => {
 		<div v-if="can('READ', 'STATUS')"
 			class="col-span-2 flex flex-col items-center justify-center gap-2 rounded-md p-4">
 			<p class="text-lg font-bold">
-				Cheshire Cat AI - Version
+				X AI - Version
 				<span class="text-primary">
 					{{ cat ? cat.version : 'unknown' }}
 				</span>

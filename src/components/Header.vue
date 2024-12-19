@@ -65,18 +65,15 @@ const showSettings = computed(
 					<RouterLink to="/"> <heroicons-home-20-solid class="size-4" /> Home </RouterLink>
 				</li>
 				<li v-if="can('READ', 'MEMORY') || can('LIST', 'MEMORY')">
-					<RouterLink :key="$route.fullPath" :to="{ path: '/memory' }"> <ph-brain-fill class="size-4" /> Memory </RouterLink>
+					<RouterLink :key="$route.fullPath" :to="{ path: '/memory' }"> <ph-brain-fill class="size-4" /> Memoria </RouterLink>
 				</li>
 				<li v-if="can('READ', 'PLUGINS') || can('LIST', 'PLUGINS')">
 					<RouterLink :key="$route.fullPath" :to="{ path: '/plugins' }"> <ph-plug-fill class="size-4" /> Plugins </RouterLink>
 				</li>
 				<li v-if="showSettings">
 					<RouterLink :key="$route.fullPath" :to="{ path: '/settings' }" :class="{ active: $route.path === '/settings' }">
-						<heroicons-cog-6-tooth-20-solid class="size-4" /> Settings
+						<heroicons-cog-6-tooth-20-solid class="size-4" /> Impostazioni
 					</RouterLink>
-				</li>
-				<li>
-					<a href="https://cheshire-cat-ai.github.io/docs/" target="_blank"> <heroicons-document-text-solid class="size-4" /> Docs </a>
 				</li>
 			</ul>
 		</div>

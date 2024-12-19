@@ -70,8 +70,6 @@ declare module 'vue' {
     PhTextbox: typeof import('~icons/ph/textbox')['default']
     PhToolbox: typeof import('~icons/ph/toolbox')['default']
     PhTrashFill: typeof import('~icons/ph/trash-fill')['default']
-    PhUser: typeof import('~icons/ph/user')['default']
-    PhUserFill: typeof import('~icons/ph/user-fill')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SelectBox: typeof import('./src/components/SelectBox.vue')['default']
